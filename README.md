@@ -1,2 +1,0 @@
-# connasence
-Connasence.io website
