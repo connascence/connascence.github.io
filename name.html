@@ -12,6 +12,7 @@
     <!-- Bootstrap -->
     <link href="http://connascence.io/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://connascence.io/theme/css/style.css" rel="stylesheet">
+    <link href="http://connascence.io/theme/css/pygments.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,6 +68,24 @@
   </header>
   <div class="entry-content">
     <p>Connascence of name is when multiple components must agree on the name of an entity. Method names are an example of this form of connascence: if the name of a method changes, callers of that method must be changed to use the new name.</p>
+<p>Almost any code example involves connascence of name. Consider the following class declaration taken from the Python standard library (method implementation has been omitted for clarity):</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Request</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span>
+                 <span class="n">origin_req_host</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">unverifiable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                 <span class="n">method</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+<p>Changing the name of any part of this code will cause code that uses this class to break, including:</p>
+<ul class="simple">
+<li>Changing the class name from <tt class="docutils literal">Request</tt>.</li>
+<li>Changing any of the method names (such as <tt class="docutils literal">set_proxy</tt>).</li>
+<li>Changing the name of any of the parameters to either <tt class="docutils literal">__init__</tt> or <tt class="docutils literal">set_proxy</tt>.</li>
+</ul>
+<p>Connascence of name is unavoidable, since we refer to entities using labels. If we change the name of an entity when we declare it, we must also change all code that refers to that entity. For this reason, connascence of name is the <em>weakest</em> connascence. However, it also illustrates how important it is to name entities in code well.</p>
 
   </div><!-- /.entry-content -->
 </section>
@@ -76,7 +95,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+        <p class="text-muted"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
       </div>
     </footer>
 
