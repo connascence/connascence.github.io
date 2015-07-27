@@ -50,6 +50,7 @@
               <li><a href="http://connascence.io/identity.html">Identity</a></li>
             </ul>
           </li>
+            <li><a href="http://connascence.io/pages/locality.html">Locality</a></li>
             <li><a href="http://connascence.io/pages/about.html">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -67,7 +68,18 @@
  
   </header>
   <div class="entry-content">
-    <p>Connascence of algorithm is when multiple components must agree on a particular algorithm. Message authentication codes are an example of this form of connascence. Both sides of the exchange must implement exactly the same hashing algorithm or the authentication will fail.</p>
+    <p>Connascence of algorithm is when multiple components must agree on a particular algorithm. This frequently occurs when two entities must manipulate data in the same way. For example, if data is being transmitted from one service to another, some sort of checksum algorithm is commonly used. The sender and receiver must agree on which algorithm is to be used. If the sender changes the algorithm used, the receiver must change as well.</p>
+<p>Consider a hypothetical piece of software that uses a file on disk to cache some expensive calculated result. An example functionto write the data to the cache file might look like this:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">write_data_to_cache</span><span class="p">(</span><span class="n">data_string</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/cache&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cache_file</span><span class="p">:</span>
+                <span class="n">cache_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data_string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">))</span>
+</pre></div>
+<p>A matching function is used to retrieve the data from the cache file:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">read_data_from_cache</span><span class="p">():</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/cache&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cache_file</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cache_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">)</span>
+</pre></div>
+<p>The connascence of algorithm here is that both functions must aggree on the encoding being used. If the <tt class="docutils literal">write_data_to_cache</tt> function changes to encrypt the data on disk (the data being stored is potentially sensitive), the <tt class="docutils literal">read_data_from_cache</tt> must also be updated.</p>
 
   </div><!-- /.entry-content -->
 </section>
