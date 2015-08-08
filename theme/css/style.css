@@ -1,11 +1,3 @@
-/*body {
-  padding-top: 50px;
-}*/
-/*.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}*/
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -16,6 +8,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -33,15 +26,12 @@ body {
 body > .container {
   padding: 60px 15px 0;
 }
+
 .container .text-muted {
   margin: 20px 0;
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
+ol.post-list {
+  list-style: circle;
+  list-style-position: outside;
 }

@@ -58,8 +58,6 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
@@ -69,7 +67,15 @@
   </header>
   <div class="entry-content">
     <p>Connascence of algorithm is when multiple components must agree on a particular algorithm. This frequently occurs when two entities must manipulate data in the same way. For example, if data is being transmitted from one service to another, some sort of checksum algorithm is commonly used. The sender and receiver must agree on which algorithm is to be used. If the sender changes the algorithm used, the receiver must change as well.</p>
-<p>Consider a hypothetical piece of software that uses a file on disk to cache some expensive calculated result. An example functionto write the data to the cache file might look like this:</p>
+<p>Consider a hypothetical piece of software that required users to provide a valid email address when creating an account. The software must validate that the email address is valid, but this might happen in several places, including:</p>
+<blockquote>
+<ul class="simple">
+<li>In a database model object.</li>
+<li>In a form field in the front-end UI.</li>
+</ul>
+</blockquote>
+<p>These pieces of code might well be in different languages, and will almost certainly be far apart from each other. The consequence of these algorithms being different might include users not being able to register, but recieving no feedback as to why.</p>
+<p>Another common example of connascence of algorithm is when unicode strings are written to disk. Imagine a hypothetical piece of software that writes a data string to a cache file on disk:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">write_data_to_cache</span><span class="p">(</span><span class="n">data_string</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/cache&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cache_file</span><span class="p">:</span>
                 <span class="n">cache_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data_string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">))</span>
@@ -79,12 +85,10 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/cache&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">cache_file</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">cache_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">)</span>
 </pre></div>
-<p>The connascence of algorithm here is that both functions must aggree on the encoding being used. If the <tt class="docutils literal">write_data_to_cache</tt> function changes to encrypt the data on disk (the data being stored is potentially sensitive), the <tt class="docutils literal">read_data_from_cache</tt> must also be updated.</p>
+<p>The connascence of algorithm here is that both functions must agree on the encoding being used. If the <tt class="docutils literal">write_data_to_cache</tt> function changes to encrypt the data on disk (the data being stored is potentially sensitive), the <tt class="docutils literal">read_data_from_cache</tt> must also be updated.</p>
 
   </div><!-- /.entry-content -->
 </section>
-      </div>
-
     </div><!-- /.container -->
 
     <footer class="footer">

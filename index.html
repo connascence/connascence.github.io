@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,79 +58,108 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
-<section id="content">
-<h2>List of Connascences</h2>
-
-<ol id="post-list">
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/name.html" rel="bookmark" title="Permalink to Connascence of Name">Connascence of Name</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of name is when multiple components must agree on the name of an entity.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/type.html" rel="bookmark" title="Permalink to Connascence of Type">Connascence of Type</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of type is when multiple components must agree on the type of an entity.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/meaning.html" rel="bookmark" title="Permalink to Connascence of Meaning">Connascence of Meaning</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of meaning is when multiple components must agree on the meaning of particular values.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/position.html" rel="bookmark" title="Permalink to Connascence of Position">Connascence of Position</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of position is when multiple components must agree on the order of values.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/algorithm.html" rel="bookmark" title="Permalink to Connascence of Algorithm">Connascence of Algorithm</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of algorithm is when multiple components must agree on a particular algorithm.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/execution.html" rel="bookmark" title="Permalink to Connascence of Execution">Connascence of Execution</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of execution is when the order of execution of multiple components is important.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/timing.html" rel="bookmark" title="Permalink to Connascence of Timing">Connascence of Timing</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of timing is when the timing of the execution of multiple components is important.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/values.html" rel="bookmark" title="Permalink to Connascence of Values">Connascence of Values</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of values is when several values must change together.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="http://connascence.io/identity.html" rel="bookmark" title="Permalink to Connascence of Identity">Connascence of Identity</a></h2>
-            </header>
-            <div class="entry-content"> <p class="first last">Connascence of identity is when multiple components must reference the entity.</p>
- </div><!-- /.entry-content -->
-    </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
-      </div>
-
+<div class="row">
+	<div class="col-md-12">
+	<div class="page-header">
+		<h1>What is Connascence?</h1>
+	</div>
+	<dl>
+		<dt>Connascence</dt>
+		<dd>
+			<ol>
+				<li>The simultaneous birth of two or more things</li>
+				<li>The act of growing at the same time</li>
+				<li>(computing) A relationship between two or more elements of software in which changing one necessitates changing the others in order to maintain overall correctness.</li>
+			</ol>
+		</dd>
+	</dl>
+	<p>
+	Connascence is a software quality metric that describes different types of coupling. The concept of connascence is a taxonomy of specific types of coupling. Individual connaissances have three properties that are important to recognise:
+	<dl>
+		<dt>Strength</dt>
+		<dd>The strength of a specific connascence is determined by how hard it is to change or remove. Generally, when refactoring code, changes should be made to prefer weaker types of connascence over stronger types.</dd>
+		<dt>Degree</dt>
+		<dd>The degree of a connascence refers to the degree of its occurance within a codebase. Connascences are often acceptable in small quantities, but should be removed if they occur frequently.</dd>
+		<dt>Locality</dt>
+		<dd>The locality of a connascence refers to how far apart the connascent elements are. Generally speaking, connascences will be more acceptible within a function or module, and less acceptible between modules.</dd>
+	</dl>
+	</p>
+	<p>Connascences are also split into <term>static</term> and <term>dynamic</term> connascences. Static connascences can be discovered by inspecting source code, while dynamic connascences can only be discovered by looking at the run-time behavior of a program. For this reason, static connascences are considered to be weaker than their dynamic counterparts.</p>
+	</div>
+	<div class="col-md-6">
+		<h4>Static Connascences</h4>
+		<ul class="list-group">
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/name.html" title="Connascence of Name">Connascence of Name</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of name is when multiple components must agree on the name of an entity.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/type.html" title="Connascence of Type">Connascence of Type</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of type is when multiple components must agree on the type of an entity.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/meaning.html" title="Connascence of Meaning">Connascence of Meaning</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of meaning is when multiple components must agree on the meaning of particular values.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/position.html" title="Connascence of Position">Connascence of Position</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of position is when multiple components must agree on the order of values.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/algorithm.html" title="Connascence of Algorithm">Connascence of Algorithm</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of algorithm is when multiple components must agree on a particular algorithm.</p>
+</p>
+    	</li>
+	</ul>
+	</div>
+	<div class="col-md-6">
+		<h4>Dynamic Connascences</h4>
+		<ul class="list-group">
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/execution.html" title="Connascence of Execution">Connascence of Execution</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of execution is when the order of execution of multiple components is important.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/timing.html" title="Connascence of Timing">Connascence of Timing</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of timing is when the timing of the execution of multiple components is important.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/values.html" title="Connascence of Value">Connascence of Value</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of value is when several values must change together.</p>
+</p>
+    	</li>
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="http://connascence.io/identity.html" title="Connascence of Identity">Connascence of Identity</a>
+    	    </h4>
+	        <p><p class="first last">Connascence of identity is when multiple components must reference the same entity.</p>
+</p>
+    	</li>
+	</ul>
+	</div>
+</div>
     </div><!-- /.container -->
 
     <footer class="footer">

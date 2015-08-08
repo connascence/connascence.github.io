@@ -58,22 +58,66 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
       <a href="http://connascence.io/values.html" rel="bookmark"
-         title="Permalink to Connascence of Values">Connascence of Values</a></h2>
+         title="Permalink to Connascence of Value">Connascence of Value</a></h2>
  
   </header>
   <div class="entry-content">
-    <p>Connascence of values is when several values must change together.</p>
+    <p>Connascence of value is when several values must change together. This frequently occurs between production code and test code. For example, consider an <tt class="docutils literal">Article</tt> class, which represents a blog article. When it is instantiated, it is given some text contents, and its initial 'state' is 'draft':</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ArticleState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+        <span class="n">Draft</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Published</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">Article</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">Draft</span>
+
+        <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="c"># do whatever is required to publish the article.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">Published</span>
+</pre></div>
+<p>Now imagine a hypothetical test that ensures that the <tt class="docutils literal">publish</tt> method works:</p>
+<div class="highlight"><pre><span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="s">&quot;Test Contents&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">article</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">Draft</span>
+<span class="n">article</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">article</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">Published</span>
+</pre></div>
+<p>The problem here is that the test requires knowledge of the initial state of the <tt class="docutils literal">Article</tt> class: if the Article's initial state is ever changed, this test will break (this is arguably a bad test, since the first assertion has little to do with the intent of the test, but it's a common mistake). This code can be improved by adding an <tt class="docutils literal">InitialState</tt> label to <tt class="docutils literal">ArticleClass</tt>, and changing both the <tt class="docutils literal">Article</tt> class and the test to refer to that label instead:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ArticleState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+        <span class="n">InitialState</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Draft</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Published</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">Article</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">InitialState</span>
+</pre></div>
+<p>The test now becomes:</p>
+<div class="highlight"><pre><span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="s">&quot;Test Contents&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">article</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">InitialState</span>
+<span class="n">article</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">article</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ArticleState</span><span class="o">.</span><span class="n">Published</span>
+</pre></div>
+<p>Should we need to change the state machine of the <tt class="docutils literal">Article</tt> class, we can do so by changing the <tt class="docutils literal">ArticleState</tt> enumeration:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ArticleState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+        <span class="n">InitialState</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Preproduction</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Draft</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">Published</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+<p>We have effectively introduced a level of indirection between the <tt class="docutils literal">Article</tt> class and its initial state value.</p>
 
   </div><!-- /.entry-content -->
 </section>
-      </div>
-
     </div><!-- /.container -->
 
     <footer class="footer">

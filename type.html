@@ -58,8 +58,6 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
@@ -68,12 +66,25 @@
  
   </header>
   <div class="entry-content">
-    <p>Connascence of type is when multiple components must agree on the type of an entity. In statically typed languages, the type of method arguments is an example of this form of connascence. If a method changes the type of its argument from an integer to a string, callers of that method must be changed to pass a different argument than before.</p>
+    <p>Connascence of type is when multiple components must agree on the type of an entity. In a statically typed language, these issues are often (but not always) caught by the compiler. Consider the following trivial C++ code:</p>
+<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">cost</span><span class="p">;</span>
+
+<span class="n">cost</span> <span class="o">=</span> <span class="mf">10.95</span><span class="p">;</span> <span class="c1">// OOPS!</span>
+</pre></div>
+<p>Dynamically typed languages typically suffer from less obvious instances of connascence of type. Consider a function that calculates your age, given your day, month, and year of birth:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birth_day</span><span class="p">,</span> <span class="n">birth_month</span><span class="p">,</span> <span class="n">birth_year</span><span class="p">):</span>
+        <span class="c"># do the calculation here:</span>
+</pre></div>
+<p>How is this function supposed to be called? Here are a few different options:</p>
+<div class="highlight"><pre><span class="n">calculate_age</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1984</span><span class="p">)</span>
+<span class="n">calculate_age</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span>
+<span class="n">calculate_age</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;1984&#39;</span><span class="p">)</span>
+<span class="n">calculate_age</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;September&#39;</span><span class="p">,</span> <span class="s">&#39;1984&#39;</span><span class="p">)</span>
+</pre></div>
+<!-- TODO - need an example of how to fix this. -->
 
   </div><!-- /.entry-content -->
 </section>
-      </div>
-
     </div><!-- /.container -->
 
     <footer class="footer">
