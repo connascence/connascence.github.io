@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
     <link href="http://connascence.io/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://connascence.io/theme/css/style.css" rel="stylesheet">
+    <link href="http://connascence.io/theme/css/simple-sidebar.css" rel="stylesheet">
     <link href="http://connascence.io/theme/css/pygments.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,36 +24,25 @@
     <![endif]-->
   </head>
   <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="http://connascence.io">connascence.io</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connascences<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="http://connascence.io/values.html">Values</a></li>
-              <li><a href="http://connascence.io/execution.html">Execution</a></li>
-              <li><a href="http://connascence.io/timing.html">Timing</a></li>
-              <li><a href="http://connascence.io/identity.html">Identity</a></li>
-            </ul>
-          </li>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="http://connascence.io">connascence.io</a></li>
+          <li><h4>Static Connascences</h4></li>
+          <li><h4>Dynamic Connascences</h4></li>
+            <li><a href="http://connascence.io/values.html">Values</a></li>
+            <li><a href="http://connascence.io/execution.html">Execution</a></li>
+            <li><a href="http://connascence.io/timing.html">Timing</a></li>
+            <li><a href="http://connascence.io/identity.html">Identity</a></li>
+          <li><h4>Properties</h4></li>
+            <li><a href="http://connascence.io/pages/strength.html">Strength</a></li>
             <li><a href="http://connascence.io/pages/locality.html">Locality</a></li>
+            <li><a href="http://connascence.io/pages/degree.html">Degree</a></li>
             <li><a href="http://connascence.io/pages/about.html">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
+        </ul>
+      </div> <!-- sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
 <div class="row">
 	<div class="col-md-12">
 	<div class="page-header">
@@ -83,44 +73,38 @@
 	</div>
 	<div class="col-md-6">
 		<h4>Static Connascences</h4>
-		<ul class="list-group">
-	</ul>
+		<div class="list-group">
+	</div>
 	</div>
 	<div class="col-md-6">
 		<h4>Dynamic Connascences</h4>
-		<ul class="list-group">
-    	<li class="list-group-item">
-        	<h4>
-        		<a href="http://connascence.io/values.html" title="Connascence of Value">Connascence of Value</a>
-    	    </h4>
-	        <p><p class="first last">Connascence of value is when several values must change together.</p>
+		<div class="list-group">
+        <a class="list-group-item" href="http://connascence.io/values.html" title="Connascence of Value">
+        	<h4 class="list-group-item-heading">Connascence of Value</h4>
+	        <p class="list-group-item-text"><p class="first last">Connascence of value is when several values must change together.</p>
 </p>
-    	</li>
-    	<li class="list-group-item">
-        	<h4>
-        		<a href="http://connascence.io/execution.html" title="Connascence of Execution">Connascence of Execution</a>
-    	    </h4>
-	        <p><p class="first last">Connascence of execution is when the order of execution of multiple components is important.</p>
+        </a>
+        <a class="list-group-item" href="http://connascence.io/execution.html" title="Connascence of Execution">
+        	<h4 class="list-group-item-heading">Connascence of Execution</h4>
+	        <p class="list-group-item-text"><p class="first last">Connascence of execution is when the order of execution of multiple components is important.</p>
 </p>
-    	</li>
-    	<li class="list-group-item">
-        	<h4>
-        		<a href="http://connascence.io/timing.html" title="Connascence of Timing">Connascence of Timing</a>
-    	    </h4>
-	        <p><p class="first last">Connascence of timing is when the timing of the execution of multiple components is important.</p>
+        </a>
+        <a class="list-group-item" href="http://connascence.io/timing.html" title="Connascence of Timing">
+        	<h4 class="list-group-item-heading">Connascence of Timing</h4>
+	        <p class="list-group-item-text"><p class="first last">Connascence of timing is when the timing of the execution of multiple components is important.</p>
 </p>
-    	</li>
-    	<li class="list-group-item">
-        	<h4>
-        		<a href="http://connascence.io/identity.html" title="Connascence of Identity">Connascence of Identity</a>
-    	    </h4>
-	        <p><p class="first last">Connascence of identity is when multiple components must reference the same entity.</p>
+        </a>
+        <a class="list-group-item" href="http://connascence.io/identity.html" title="Connascence of Identity">
+        	<h4 class="list-group-item-heading">Connascence of Identity</h4>
+	        <p class="list-group-item-text"><p class="first last">Connascence of identity is when multiple components must reference the same entity.</p>
 </p>
-    	</li>
-	</ul>
+        </a>
+	</div>
 	</div>
 </div>
-    </div><!-- /.container -->
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">

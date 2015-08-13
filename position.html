@@ -12,6 +12,7 @@
     <!-- Bootstrap -->
     <link href="http://connascence.io/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://connascence.io/theme/css/style.css" rel="stylesheet">
+    <link href="http://connascence.io/theme/css/simple-sidebar.css" rel="stylesheet">
     <link href="http://connascence.io/theme/css/pygments.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,41 +24,30 @@
 
   </head>
   <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="http://connascence.io">connascence.io</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connascences<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="http://connascence.io/name.html">Name</a></li>
-              <li><a href="http://connascence.io/type.html">Type</a></li>
-              <li><a href="http://connascence.io/meaning.html">Meaning</a></li>
-              <li><a href="http://connascence.io/position.html">Position</a></li>
-              <li><a href="http://connascence.io/algorithm.html">Algorithm</a></li>
-              <li><a href="http://connascence.io/execution.html">Execution</a></li>
-              <li><a href="http://connascence.io/timing.html">Timing</a></li>
-              <li><a href="http://connascence.io/values.html">Values</a></li>
-              <li><a href="http://connascence.io/identity.html">Identity</a></li>
-            </ul>
-          </li>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="http://connascence.io">connascence.io</a></li>
+          <li><h4>Static Connascences</h4></li>
+            <li><a href="http://connascence.io/name.html">Name</a></li>
+            <li><a href="http://connascence.io/type.html">Type</a></li>
+            <li><a href="http://connascence.io/meaning.html">Meaning</a></li>
+            <li class="active"><a href="http://connascence.io/position.html">Position</a></li>
+            <li><a href="http://connascence.io/algorithm.html">Algorithm</a></li>
+          <li><h4>Dynamic Connascences</h4></li>
+            <li><a href="http://connascence.io/execution.html">Execution</a></li>
+            <li><a href="http://connascence.io/timing.html">Timing</a></li>
+            <li><a href="http://connascence.io/values.html">Values</a></li>
+            <li><a href="http://connascence.io/identity.html">Identity</a></li>
+          <li><h4>Properties</h4></li>
+            <li><a href="http://connascence.io/pages/strength.html">Strength</a></li>
             <li><a href="http://connascence.io/pages/locality.html">Locality</a></li>
+            <li><a href="http://connascence.io/pages/degree.html">Degree</a></li>
             <li><a href="http://connascence.io/pages/about.html">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
+        </ul>
+      </div> <!-- sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
@@ -71,33 +61,33 @@
 <h2>In Data Structures</h2>
 <p>For example, consider a function that retrieves a user's details:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_user_details</span><span class="p">():</span>
-        <span class="c"># Returns a user&#39;s details as a list:</span>
-        <span class="c"># first_name, last_name, year_of_birth, is_admin</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s">&quot;Thomas&quot;</span><span class="p">,</span> <span class="s">&quot;Richards&quot;</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
+    <span class="c"># Returns a user&#39;s details as a list:</span>
+    <span class="c"># first_name, last_name, year_of_birth, is_admin</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s">&quot;Thomas&quot;</span><span class="p">,</span> <span class="s">&quot;Richards&quot;</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
 </pre></div>
 <p>This is a somewhat contrived example, but it's not uncommon to see data returned in lists or tuples. Elsewhere in the code we might need to perform some check on whether the user is an administrator or not:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">launch_nukes</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
-                <span class="c"># actually launch the nukes</span>
-        <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">PermissionDeniedError</span><span class="p">(</span><span class="s">&quot;User is not an administrator!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+        <span class="c"># actually launch the nukes</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedError</span><span class="p">(</span><span class="s">&quot;User is not an administrator!&quot;</span><span class="p">)</span>
 </pre></div>
 <p>These two functions are linked by <em>connascence of position</em>. If the order of the values in the user list ever changes, both locations must be updated (this example is particularly scary if someone were to update the user list to be <tt class="docutils literal">[first_name, initials, last_name, year_of_birth, is_admin]</tt> without updating the check inside launch_nukes).</p>
 <p>This connascence can be improved to connascence of name by turning the list into a dictionary or class. The following example shows how the above functions might look as a dictionary:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_user_details</span><span class="p">():</span>
-        <span class="k">return</span> <span class="p">{</span>
-                <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Thomas&quot;</span><span class="p">,</span>
-                <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Richards&quot;</span><span class="p">,</span>
-                <span class="s">&quot;year_of_birth&quot;</span><span class="p">:</span> <span class="mi">1984</span><span class="p">,</span>
-                <span class="s">&quot;is_admin&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-        <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s">&quot;first_name&quot;</span><span class="p">:</span> <span class="s">&quot;Thomas&quot;</span><span class="p">,</span>
+        <span class="s">&quot;last_name&quot;</span><span class="p">:</span> <span class="s">&quot;Richards&quot;</span><span class="p">,</span>
+        <span class="s">&quot;year_of_birth&quot;</span><span class="p">:</span> <span class="mi">1984</span><span class="p">,</span>
+        <span class="s">&quot;is_admin&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">launch_nukes</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;is_admin&#39;</span><span class="p">]:</span>
-                <span class="c"># actually launch the nukes</span>
-        <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">PermissionDeniedError</span><span class="p">(</span><span class="s">&quot;User is not an administrator!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s">&#39;is_admin&#39;</span><span class="p">]:</span>
+        <span class="c"># actually launch the nukes</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedError</span><span class="p">(</span><span class="s">&quot;User is not an administrator!&quot;</span><span class="p">)</span>
 </pre></div>
 <p>Note that these two functions are still coupled, but we've turned connascence of position into the weaker connascence of name. This has also increased the readability of the <tt class="docutils literal">get_user_details</tt> function - the explicit comment is no longer needed to document the order of the keys.</p>
 <p>A similar solution is to use a class instead of a dictionary, and this can be beneficial if the structure being returned has constraints or operations associated with it.</p>
@@ -112,7 +102,9 @@
 
   </div><!-- /.entry-content -->
 </section>
-    </div><!-- /.container -->
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">

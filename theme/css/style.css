@@ -35,3 +35,7 @@ ol.post-list {
   list-style: circle;
   list-style-position: outside;
 }
+
+ul.sidebar-nav h4 {
+  color: white;
+}

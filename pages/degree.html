@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8" />
 
-    <title>connascence.io</title>
+    <title>Degree</title>
 
     <!-- Bootstrap -->
     <link href="http://connascence.io/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
   </head>
   <body>
     <div id="wrapper">
@@ -29,7 +28,7 @@
         <ul class="sidebar-nav">
           <li class="sidebar-brand"><a href="http://connascence.io">connascence.io</a></li>
           <li><h4>Static Connascences</h4></li>
-            <li class="active"><a href="http://connascence.io/name.html">Name</a></li>
+            <li><a href="http://connascence.io/name.html">Name</a></li>
             <li><a href="http://connascence.io/type.html">Type</a></li>
             <li><a href="http://connascence.io/meaning.html">Meaning</a></li>
             <li><a href="http://connascence.io/position.html">Position</a></li>
@@ -42,42 +41,18 @@
           <li><h4>Properties</h4></li>
             <li><a href="http://connascence.io/pages/strength.html">Strength</a></li>
             <li><a href="http://connascence.io/pages/locality.html">Locality</a></li>
-            <li><a href="http://connascence.io/pages/degree.html">Degree</a></li>
+            <li class="active"><a href="http://connascence.io/pages/degree.html">Degree</a></li>
             <li><a href="http://connascence.io/pages/about.html">About</a></li>
         </ul>
       </div> <!-- sidebar-wrapper -->
       <div id="page-content-wrapper">
         <div class="container-fluid">
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="http://connascence.io/name.html" rel="bookmark"
-         title="Permalink to Connascence of Name">Connascence of Name</a></h2>
- 
-  </header>
-  <div class="entry-content">
-    <p>Connascence of name is when multiple components must agree on the name of an entity. Method names are an example of this form of connascence: if the name of a method changes, callers of that method must be changed to use the new name.</p>
-<p>Almost any code example involves connascence of name. Consider the following class declaration taken from the Python standard library (method implementation has been omitted for clarity):</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Request</span><span class="p">:</span>
+    <h1>Degree</h1>
+    
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span>
-                 <span class="n">origin_req_host</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">unverifiable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                 <span class="n">method</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">pass</span>
+    <p>The <em>degree</em> of a piece of connascence is related to the size of it's impact. Does the coupling in question affect 2 entities, or 200?</p>
 
-    <span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
-        <span class="k">pass</span>
-</pre></div>
-<p>Changing the name of any part of this code will cause code that uses this class to break, including:</p>
-<ul class="simple">
-<li>Changing the class name from <tt class="docutils literal">Request</tt>.</li>
-<li>Changing any of the method names (such as <tt class="docutils literal">set_proxy</tt>).</li>
-<li>Changing the name of any of the parameters to either <tt class="docutils literal">__init__</tt> or <tt class="docutils literal">set_proxy</tt>.</li>
-</ul>
-<p>Connascence of name is unavoidable, since we refer to entities using labels. If we change the name of an entity when we declare it, we must also change all code that refers to that entity. For this reason, connascence of name is the <em>weakest</em> connascence. However, it also illustrates how important it is to name entities in code well.</p>
 
-  </div><!-- /.entry-content -->
-</section>
         </div>
       </div>
     </div>
