@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8" />
-
+  
+  <meta name="description" content="Connascence of algorithm is when multiple components must agree on a particular algorithm." />
     <title>connascence.io</title>
 
     <!-- Bootstrap -->
@@ -21,7 +22,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
   </head>
   <body>
     <div id="wrapper">
@@ -56,10 +56,17 @@
  
   </header>
   <div class="entry-content">
-    <p>Connascence of algorithm is when multiple components must agree on a particular algorithm. This frequently occurs when two entities must manipulate data in the same way. For example, if data is being transmitted from one service to another, some sort of checksum algorithm is commonly used. The sender and receiver must agree on which algorithm is to be used. If the sender changes the algorithm used, the receiver must change as well.</p>
+    <p>Connascence of algorithm is when multiple components must agree on a particular algorithm.</p>
+<div class="section" id="in-data-transmission">
+<h2>In Data Transmission</h2>
+<p>Connascence of algorithm frequently occurs when two entities must manipulate data in the same way. For example, if data is being transmitted from one service to another, some sort of checksum algorithm is commonly used. The sender and receiver must agree on which algorithm is to be used. If the sender changes the algorithm used, the receiver must change as well.</p>
+</div>
+<div class="section" id="in-data-validation-and-encoding">
+<h2>In Data Validation and Encoding</h2>
 <p>Consider a hypothetical piece of software that required users to provide a valid email address when creating an account. The software must validate that the email address is valid, but this might happen in several places, including:</p>
 <ul class="simple">
 <li>In a database model object.</li>
+<li>In a webapp 'controller' class method.</li>
 <li>In a form field in the front-end UI.</li>
 </ul>
 <p>These pieces of code might well be in different languages, and will almost certainly be far apart from each other. The consequence of these algorithms being different might include users not being able to register, but recieving no feedback as to why.</p>
@@ -74,6 +81,18 @@
         <span class="k">return</span> <span class="n">cache_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">)</span>
 </pre></div>
 <p>The connascence of algorithm here is that both functions must agree on the encoding being used. If the <tt class="docutils literal">write_data_to_cache</tt> function changes to encrypt the data on disk (the data being stored is potentially sensitive), the <tt class="docutils literal">read_data_from_cache</tt> must also be updated.</p>
+</div>
+<div class="section" id="in-test-code">
+<h2>In Test Code</h2>
+<p>Test code often contains connascence of algorithm. Consider this hypothetical test:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">test_user_fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Thomi Richards&quot;</span><span class="p">)</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">fingerprint</span><span class="p">()</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+</pre></div>
+<p>This test is supposed to be testing that the 'fingerprint' method of the <tt class="docutils literal">User</tt> class works as expected. However, it contains connascence of algorithm, which limits it's effectiveness. If the <tt class="docutils literal">User</tt> class ever changes the way fingerprints are calculated, this test will fail.</p>
+</div>
 
   </div><!-- /.entry-content -->
 </section>

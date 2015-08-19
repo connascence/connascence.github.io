@@ -39,3 +39,8 @@ ol.post-list {
 ul.sidebar-nav h4 {
   color: white;
 }
+
+/* Make the headings on the front page look like links: */
+a.list-group-item h4.blue {
+  color: #337ab7;
+}
