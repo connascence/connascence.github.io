@@ -48,7 +48,7 @@
               <ul class="list-group">
                 <li class="list-group-item"><a href="http://connascence.io/execution.html">Execution</a></li>
                 <li class="list-group-item"><a href="http://connascence.io/timing.html">Timing</a></li>
-                <li class="list-group-item"><a href="http://connascence.io/values.html">Values</a></li>
+                <li class="list-group-item"><a href="http://connascence.io/value.html">Value</a></li>
                 <li class="list-group-item"><a href="http://connascence.io/identity.html">Identity</a></li>
               </ul>
               <!-- Default panel contents -->
@@ -105,10 +105,10 @@
 <h2>In Test Code</h2>
 <p>Test code often contains connascence of algorithm. Consider this hypothetical test:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">test_user_fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Thomi Richards&quot;</span><span class="p">)</span>
-        <span class="n">actual</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">fingerprint</span><span class="p">()</span>
-        <span class="n">expected</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;Thomi Richards&quot;</span><span class="p">)</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">fingerprint</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
 </pre></div>
 <p>This test is supposed to be testing that the 'fingerprint' method of the <tt class="docutils literal">User</tt> class works as expected. However, it contains connascence of algorithm, which limits it's effectiveness. If the <tt class="docutils literal">User</tt> class ever changes the way fingerprints are calculated, this test will fail.</p>
 </div>

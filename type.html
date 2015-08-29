@@ -48,7 +48,7 @@
               <ul class="list-group">
                 <li class="list-group-item"><a href="http://connascence.io/execution.html">Execution</a></li>
                 <li class="list-group-item"><a href="http://connascence.io/timing.html">Timing</a></li>
-                <li class="list-group-item"><a href="http://connascence.io/values.html">Values</a></li>
+                <li class="list-group-item"><a href="http://connascence.io/value.html">Value</a></li>
                 <li class="list-group-item"><a href="http://connascence.io/identity.html">Identity</a></li>
               </ul>
               <!-- Default panel contents -->
@@ -75,22 +75,35 @@
  
   </header>
   <div class="entry-content">
-    <p>Connascence of type is when multiple components must agree on the type of an entity. In a statically typed language, these issues are often (but not always) caught by the compiler. Consider the following trivial C++ code:</p>
+    <p>Connascence of type is when multiple components must agree on the type of an entity.</p>
+<div class="section" id="statically-dynamically-typed-languages">
+<h2>Statically &amp; Dynamically Typed Languages</h2>
+<p>In a statically typed language, these issues are often (but not always) caught by the compiler. Consider the following trivial C++ code:</p>
 <div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">cost</span><span class="p">;</span>
 
 <span class="n">cost</span> <span class="o">=</span> <span class="mf">10.95</span><span class="p">;</span> <span class="c1">// OOPS!</span>
 </pre></div>
-<p>Dynamically typed languages typically suffer from less obvious instances of connascence of type. Consider a function that calculates your age, given your day, month, and year of birth:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birth_day</span><span class="p">,</span> <span class="n">birth_month</span><span class="p">,</span> <span class="n">birth_year</span><span class="p">):</span>
-    <span class="c"># do the calculation here:</span>
+<p>However, connascence of type can be much more subtle. Poor design can result in a situation where correct runtime behavior depends on the type of a class, but the code accepts an abstract base type instead (This is a violation of the Liskov substitution principle).</p>
+<p>Dynamically typed languages suffer from the same connascence of type issues as statically typed languages do, but receive no support from a compiler to check basic type issues.</p>
+</div>
+<div class="section" id="issues-with-basic-types">
+<h2>Issues with Basic Types</h2>
+<p>Connascence of type can occur with basic types. Consider a function that does addition of prices for an online shopping cart:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">sum_prices</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
+    <span class="n">running_total</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">running_total</span> <span class="o">+=</span> <span class="n">price</span>
+    <span class="k">return</span> <span class="n">running_total</span>
 </pre></div>
-<p>How is this function supposed to be called? Here are a few different options:</p>
-<div class="highlight"><pre><span class="n">calculate_age</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1984</span><span class="p">)</span>
-<span class="n">calculate_age</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">84</span><span class="p">)</span>
-<span class="n">calculate_age</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;1984&#39;</span><span class="p">)</span>
-<span class="n">calculate_age</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;September&#39;</span><span class="p">,</span> <span class="s">&#39;1984&#39;</span><span class="p">)</span>
+<p>Callers of this function must be careful to pass in the correct type for each price. The following call will not raise an error, but will return the wrong value:</p>
+<div class="highlight"><pre><span class="n">sum_prices</span><span class="p">([</span><span class="s">&#39;1.1&#39;</span><span class="p">,</span> <span class="s">&#39;2.2&#39;</span><span class="p">])</span>
 </pre></div>
-<!-- TODO - need an example of how to fix this. -->
+<p>More surprisingly, this call will also return the wrong value:</p>
+<div class="highlight"><pre><span class="n">sum_prices</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">])</span>
+</pre></div>
+<p>...since floating point arithmatic gives us an answer of <tt class="docutils literal">3.3000000000000003</tt>, which may well cause issues elsewhere in the system.</p>
+<p>This example also suffers from <a class="reference external" href="http://connascence.io/meaning.html">connascence of meaning</a> as well.</p>
+</div>
 
   </div><!-- /.entry-content -->
 </section>
