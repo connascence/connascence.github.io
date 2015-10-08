@@ -99,9 +99,9 @@
 </pre></div>
 <p>The problem here is that the test requires knowledge of the initial state of the <tt class="docutils literal">Article</tt> class: if the Article's initial state is ever changed, this test will break (this is arguably a bad test, since the first assertion has little to do with the intent of the test, but it's a common mistake). This code can be improved by adding an <tt class="docutils literal">InitialState</tt> label to <tt class="docutils literal">ArticleClass</tt>, and changing both the <tt class="docutils literal">Article</tt> class and the test to refer to that label instead:</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">ArticleState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">InitialState</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Draft</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Published</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">InitialState</span> <span class="o">=</span> <span class="n">Draft</span>
 
 
 <span class="k">class</span> <span class="nc">Article</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -118,10 +118,10 @@
 </pre></div>
 <p>Should we need to change the state machine of the <tt class="docutils literal">Article</tt> class, we can do so by changing the <tt class="docutils literal">ArticleState</tt> enumeration:</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">ArticleState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">InitialState</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Preproduction</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Draft</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">Published</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">Published</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">InitialState</span> <span class="o">=</span> <span class="n">Preproduction</span>
 </pre></div>
 <p>We have effectively introduced a level of indirection between the <tt class="docutils literal">Article</tt> class and its initial state value.</p>
 
