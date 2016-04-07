@@ -77,13 +77,13 @@
   <div class="entry-content">
     <p>Connascence of execution is when the order of execution of multiple components is important. Common examples include locking and unlocking resources, where locks must be acquired and released in the same order everywhere in the entire codebase.</p>
 <p>Connascence of execution can also occur when using objects that encapsulate a state machine, and that state machine only allows certain operations in certain states. For example, consider a hypothetical <tt class="docutils literal">EmailSender</tt> class that allows a caller to generate and send an email:</p>
-<div class="highlight"><pre><span class="n">email</span> <span class="o">=</span> <span class="n">Email</span><span class="p">()</span>
-<span class="n">email</span><span class="o">.</span><span class="n">setRecipient</span><span class="p">(</span><span class="s">&quot;foo@example.comp&quot;</span><span class="p">)</span>
-<span class="n">email</span><span class="o">.</span><span class="n">setSender</span><span class="p">(</span><span class="s">&quot;me@mydomain.com&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">email</span> <span class="o">=</span> <span class="n">Email</span><span class="p">()</span>
+<span class="n">email</span><span class="o">.</span><span class="n">setRecipient</span><span class="p">(</span><span class="s2">&quot;foo@example.comp&quot;</span><span class="p">)</span>
+<span class="n">email</span><span class="o">.</span><span class="n">setSender</span><span class="p">(</span><span class="s2">&quot;me@mydomain.com&quot;</span><span class="p">)</span>
 <span class="n">email</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
-<span class="n">email</span><span class="o">.</span><span class="n">setSubject</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="n">email</span><span class="o">.</span><span class="n">setSubject</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
-<p>The last two lines show a trivial example of connascence of execution. The <tt class="docutils literal">setSubject</tt> method cannot be called after the <tt class="docutils literal">send</tt> method (at best it will do nothing). In this example the <a class="reference external" href="{filename}/pages/locality.rst">locality</a> of the coupling is very low, but cases where the locality is very high can be much harder to find and fix (consider, for example a scenario where the last two lines are called on separate threads).</p>
+<p>The last two lines show a trivial example of connascence of execution. The <tt class="docutils literal">setSubject</tt> method cannot be called after the <tt class="docutils literal">send</tt> method (at best it will do nothing). In this example the <a class="reference external" href="http://connascence.io/locality.html">locality</a> of the coupling is very low, but cases where the locality is very high can be much harder to find and fix (consider, for example a scenario where the last two lines are called on separate threads).</p>
 
   </div><!-- /.entry-content -->
 </section>
