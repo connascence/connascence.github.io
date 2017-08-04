@@ -115,7 +115,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ObjectNotFound</span>
     <span class="k">except</span> <span class="n">DatabaseError</span><span class="p">:</span>
-        <span class="n">returrn</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 <p>We still have connascence of meaning in the error case, but at least the <tt class="docutils literal">None</tt> value is no longer ambigous. The error case could also be improved to connascence of name in a similar way.</p>
 <p>Another common example of connascence of meaning is when we use primative numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:</p>
