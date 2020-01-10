@@ -82,7 +82,7 @@
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_user_details</span><span class="p">():</span>
     <span class="c1"># Returns a user&#39;s details as a list:</span>
     <span class="c1"># first_name, last_name, year_of_birth, is_admin</span>
-    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;Thomas&quot;</span><span class="p">,</span> <span class="s2">&quot;Richards&quot;</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;Thomas&quot;</span><span class="p">,</span> <span class="s2">&quot;Richards&quot;</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 </pre></div>
 <p>This is a somewhat contrived example, but it's not uncommon to see data returned in lists or tuples. Elsewhere in the code we might need to perform some check on whether the user is an administrator or not:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">launch_nukes</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
@@ -98,7 +98,7 @@
         <span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Thomas&quot;</span><span class="p">,</span>
         <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Richards&quot;</span><span class="p">,</span>
         <span class="s2">&quot;year_of_birth&quot;</span><span class="p">:</span> <span class="mi">1984</span><span class="p">,</span>
-        <span class="s2">&quot;is_admin&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="s2">&quot;is_admin&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">}</span>
 
 
@@ -114,7 +114,7 @@
 <div class="section" id="in-function-arguments">
 <h2>In Function Arguments</h2>
 <p>Connascence of position also frequently occurs in function argument lists. Consider the following function declaration from a mythical email-sending utility library:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">attachments</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">attachments</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </pre></div>
 <p>Code calling this <tt class="docutils literal">send_email</tt> function must remember the order of arguments. Should that order ever change, all calling locations must also be updated. This example could also be improved to connascence of name by passing a structured object (a class or dictionary) instead of a number of parameters.</p>
 </div>

@@ -79,7 +79,7 @@
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_credit_card_number_valid</span><span class="p">(</span><span class="n">card_number</span><span class="p">):</span>
     <span class="c1"># Check for &#39;test&#39; credit card numbers:</span>
     <span class="k">if</span> <span class="n">card_number</span> <span class="o">==</span> <span class="s2">&quot;9999-9999-9999-9999&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
     <span class="c1"># Do normal validation:</span>
     <span class="c1"># ...</span>
 </pre></div>
@@ -101,27 +101,27 @@
 <p>Connascence of meaning can be improved to connascence of name by moving the &quot;magic values&quot; to named constants, and referring to the constants instead of the values. However in doing so, we have increased the amount of connascence of name (since we now need a third location to store the constant).</p>
 <p>Another common example of connascence of meaning is when <tt class="docutils literal">None</tt> is used as a return value. This frequently occurs in functions that are tasked with finding an object. If that object isn't found, the function might return <tt class="docutils literal">None</tt>.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_user_in_database</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
 </pre></div>
 <p>However, the function might also return None in an error condition:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_user_in_database</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="n">DatabaseError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 <p>The problem in both these cases is that a semantic meaning is being assigned to the <tt class="docutils literal">None</tt> value. If multiple different meanings are assigned to the same <tt class="docutils literal">None</tt> value in the same codebase, the programmer must remember which meaning applies to which case. This can be improved to connascence of name by returning an explicit object that represents the case in question:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_user_in_database</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">database</span><span class="o">.</span><span class="n">find_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ObjectNotFound</span>
     <span class="k">except</span> <span class="n">DatabaseError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 <p>We still have connascence of meaning in the error case, but at least the <tt class="docutils literal">None</tt> value is no longer ambigous. The error case could also be improved to connascence of name in a similar way.</p>
-<p>Another common example of connascence of meaning is when we use primative numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:</p>
+<p>Another common example of connascence of meaning is when we use primitive numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:</p>
 <div class="highlight"><pre><span></span><span class="n">unit_cost</span> <span class="o">=</span> <span class="mf">49.95</span>
 </pre></div>
-<p>What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primative type. It can be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:</p>
+<p>What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primitive type. It can be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:</p>
 <div class="highlight"><pre><span></span><span class="n">unit_cost</span> <span class="o">=</span> <span class="n">Cost</span><span class="p">(</span><span class="mf">49.95</span><span class="p">,</span> <span class="s1">&#39;USD&#39;</span><span class="p">)</span>
 </pre></div>
 <p>This particular problem is often called &quot;<strong>Primitive Obsession</strong>&quot;, and can be generically described as using primitive data types to represent more complex domains.</p>
